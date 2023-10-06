@@ -1,0 +1,40 @@
+version: 2
+
+models:
+    - name: raw_weather_view
+      description: "View for weather data"
+      columns:
+        - name: stn,
+        - name: wban,
+        - name: date, 
+        - name: year,
+        - name: mo,
+        - name: da
+        - name: temp,
+        - name: count_temp,
+        - name: dewp,
+        - name: count_dewp,
+        - name: slp,
+        - name: count_slp,
+        - name: stp,
+        - name: count_stp,
+        - name: visib,
+        - name: count_visib,
+        - name: wdsp,
+        - name: count_wdsp,
+        - name: mxpsd,
+        - name: gust,
+        - name: max,
+        - name: flag_max,
+        - name: min,
+        - name: flag_min,
+        - name: prcp,
+        - name: flag_prcp,
+        - name: sndp,
+        - name: fog,
+        - name: rain_drizzle,
+        - name: snow_ice_pellets,
+        - name: hail,
+        - name: thunder,
+        - name: tornado_funnel_cloud
+                 
