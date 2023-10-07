@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: data_raw  # This is an arbitrary logical name for the source, used in dbt models
+    database: toronto-shelter-project  # This is your BigQuery project name
+    schema: data_raw  # This is your BigQuery dataset name
+    
+    tables:
+      - name: raw_data_2022  # This is your table name
+        description: "This table contains raw data for 2022."  # Optional: add a description for documentation
+      - name: raw_data_2023
+        description: "This table contains raw data for 2023."
