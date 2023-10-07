@@ -39,4 +39,6 @@ models:
     marts:
       +materialized: table
       +schema: data_clean
- 
+    intermediate:
+        +materialized: table
+        +schema: data_features
