@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: clean_weather_2022
+    description: "This model provides cleaned weather data for the year 2022, including station identifier, date, and temperature metrics."
+    
+    columns:
+      - name: stn
+        description: "The station identifier."
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              values: ['712650']  # Add more station codes as per your requirement
+      
+      - name: date
+        description: "The date of the weather record."
+        tests:
+          - not_null
+          - unique
+      
+      - name: temp_min
+        description: "The minimum temperature recorded on the date at the station."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "temp_min >= -100 and temp_min <= 100"
+      
+      - name: temp_max
+        description: "The maximum temperature recorded on the date at the station."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "temp_max >= -100 and temp_max <= 100"
+      
+      - name: temp_avg
+        description: "The average temperature recorded on the date at the station."
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "temp_avg >= -100 and temp_avg <= 100"
+    
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "temp_min <= temp_max and temp_avg between temp_min and temp_max"
