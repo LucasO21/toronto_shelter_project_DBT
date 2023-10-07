@@ -1,8 +1,10 @@
-# Toronto Shelter Data Project - Data Analysis for Homeless Shelter Occupancy Modeling
+# Toronto Shelter Data Project (DBT)
+
+---
 
 ## Project Overview
 
-This repository contains [DBT](https://docs.getdbt.com/) project for modeling overnight service occupancy in homeless shelters in the city of Toronto. Utilizing DBT (Data Build Tool) and Google BigQuery, we transform raw data, including shelter data and weather data, to create specific tables optimized for subsequent modeling processes.
+This repository contains the [DBT](https://docs.getdbt.com/) project for modeling overnight service occupancy in homeless shelters in the city of Toronto. Utilizing DBT (Data Build Tool) and Google BigQuery, we transform raw data, including shelter data and weather data, to create specific tables optimized for subsequent modeling processes.
 
 ### Objectives
 
