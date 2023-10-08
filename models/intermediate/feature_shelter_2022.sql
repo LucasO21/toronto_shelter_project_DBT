@@ -12,15 +12,16 @@ with
             , t2.model_cohort    
         from {{ ref ('clean_shelter_2022') }} as t1
         left join {{ref ('model_cohort_flag_2022') }} as t2
-        on t1.organization_name           = t2.organization_name
-            and t1.shelter_group          = t2.shelter_group
-            and t1.program_id             = t2.program_id
-            and t1.program_area           = t2.program_area
+        on t1.organization_id             = t2.organization_id
+            and t1.shelter_id             = t2.shelter_id
+            and t1.location_id            = t2.location_id
+            and t1.program_id             = t2.program_id           
             and t1.sector                 = t2.sector
             and t1.program_model          = t2.program_model
+            and t1.program_area           = t2.program_area
             and t1.overnight_service_type = t2.overnight_service_type
             and t1.capacity_type          = t2.capacity_type
-            and t1.location_id            = t2.location_id
+            
     )
 
     , cte_2 as (
@@ -42,5 +43,4 @@ with
         select
             * except (model_cohort)
         from cte_2
-
 
