@@ -5,12 +5,16 @@ with
       select 
           organization_name
         , shelter_group
-        , location_name
-        , location_address
-        , location_city
+        , program_id
+        , program_area
+        , sector
+        , program_model
+        , overnight_service_type
+        , capacity_type
+        , location_id
         , count(distinct occupancy_date) as days_open
       from {{ ref ('clean_shelter_2022' )}}
-      group by 1, 2, 3, 4, 5
+      group by 1, 2, 3, 4, 5, 6, 7, 8, 9
     )
     
     , days_open_pct_cte as (
