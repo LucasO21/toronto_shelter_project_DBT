@@ -3,14 +3,20 @@
 with 
     days_open_cte as ( 
       select 
-          organization_name
-        , shelter_group
-        , location_name
-        , location_address
-        , location_city
+        --  organization_name
+        --, shelter_group
+          organization_id
+        , shelter_id
+        , location_id
+        , program_id    
+        , sector
+        , program_model
+        , program_area
+        , overnight_service_type
+        , capacity_type
         , count(distinct occupancy_date) as days_open
       from {{ ref ('clean_shelter_2023' )}}
-      group by 1, 2, 3, 4, 5
+      group by 1, 2, 3, 4, 5, 6, 7, 8, 9
     )
     
     , days_open_pct_cte as (

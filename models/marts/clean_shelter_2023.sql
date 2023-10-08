@@ -14,7 +14,7 @@ with
           , case when lower(capacity_type) like '%bed%' then unoccupied_beds else unoccupied_rooms end as unoccupied
           , case when lower(capacity_type) like '%bed%' then unavailable_beds else unavailable_rooms end as unavailable
           , case when lower(capacity_type) like '%bed%' then occupancy_rate_beds else occupancy_rate_rooms end as occupancy_rate
-        from {{ source( 'data_raw', 'raw_data_2023') }}
+        from {{ source( 'data_raw', 'raw_shelter_2023') }}
     )
     
     , drop_columns_stg as (

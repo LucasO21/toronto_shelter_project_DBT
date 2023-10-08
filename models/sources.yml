@@ -6,7 +6,7 @@ sources:
     schema: data_raw  # This is your BigQuery dataset name
     
     tables:
-      - name: raw_data_2022  # This is your table name
+      - name: raw_shelter_2022  # This is your table name
         description: "This table contains raw data for 2022."  # Optional: add a description for documentation
-      - name: raw_data_2023
+      - name: raw_shelter_2023
         description: "This table contains raw data for 2023."
