@@ -15,7 +15,7 @@ with
         select
             distinct
               date(occupancy_date) as occupancy_date
-        from {{ ref ('clean_shelter_2023') }}  ---`toronto-shelter-project.data_clean.clean_shelter_2023`
+        from {{ ref ('clean_shelter_2022') }}  ---`toronto-shelter-project.data_clean.clean_shelter_2023`
     
     )
 
@@ -25,7 +25,7 @@ with
             , temp_min
             , temp_max
             , temp_avg
-        from {{ ref ('clean_weather_2023') }} ---`toronto-shelter-project.data_clean.clean_weather_2023`
+        from {{ ref ('clean_weather_2022') }} ---`toronto-shelter-project.data_clean.clean_weather_2023`
     )
 
     , combine_cte as (
