@@ -1,3 +1,3 @@
 select 
     *
-from {{ ref ('clean_weather_2023') }}
+from {{ ref ('clean_weather_no_nulls_2023') }}
