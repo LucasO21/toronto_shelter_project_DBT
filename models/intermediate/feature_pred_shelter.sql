@@ -51,7 +51,7 @@ with
             unnest(generate_array(1, 5)) as x
   )
         select
-              fct.forecast_date
+              fct.forecast_date as occupancy_date
             , var.*
         from forecast_dates_cte as fct
         cross join last_7_days_avg as var
