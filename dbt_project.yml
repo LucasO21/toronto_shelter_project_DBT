@@ -33,12 +33,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   admin_maturity:
-    staging:
+    data_raw:
       +materialized: view
       +schema: data_raw
-    marts:
+    data_clean:
       +materialized: table
       +schema: data_clean
-    intermediate:
+    data_features:
         +materialized: table
         +schema: data_features
