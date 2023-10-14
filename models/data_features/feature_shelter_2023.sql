@@ -13,15 +13,7 @@ with
             , t2.model_cohort    
         from {{ ref ('clean_shelter_2023') }} as t1
         left join {{ref ('model_cohort_flag_2023') }} as t2
-        on t1.organization_id             = t2.organization_id
-            and t1.shelter_id             = t2.shelter_id
-            and t1.location_id            = t2.location_id
-            and t1.program_id             = t2.program_id           
-            and t1.sector                 = t2.sector
-            and t1.program_model          = t2.program_model
-            and t1.program_area           = t2.program_area
-            and t1.overnight_service_type = t2.overnight_service_type
-            and t1.capacity_type          = t2.capacity_type
+        on t1.pkey = t2.pkey
             
     )
 
