@@ -45,9 +45,9 @@ with
             , temp_min
             , temp_max
             , temp_avg
-            , avg(temp_min) over (order by occupancy_date rows between 4 preceding and 1 preceding) as roll_avg_temp_min
-            , avg(temp_max) over (order by occupancy_date rows between 4 preceding and 1 preceding) as roll_avg_temp_max
-            , avg(temp_avg) over (order by occupancy_date rows between 4 preceding and 1 preceding) as roll_avg_temp_avg
+            , avg(temp_min) over (order by occupancy_date rows between 5 preceding and 1 preceding) as roll_avg_temp_min
+            , avg(temp_max) over (order by occupancy_date rows between 5 preceding and 1 preceding) as roll_avg_temp_max
+            , avg(temp_avg) over (order by occupancy_date rows between 5 preceding and 1 preceding) as roll_avg_temp_avg
         from combine_cte
     )
     
