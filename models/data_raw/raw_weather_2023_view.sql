@@ -1,4 +1,6 @@
 
+-- this model creates a view of historical weather data (2023) in the project
+
 {{ config(materialized='view') }}
 
 select
