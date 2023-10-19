@@ -1,4 +1,6 @@
 
+-- this model creates a view of historical weather data (2022) in the project
+
 {{ config(materialized='view') }}
 
 select
@@ -36,6 +38,6 @@ select
   thunder,
   tornado_funnel_cloud
 from
-  `bigquery-public-data.noaa_gsod.gsod2023`
+  `bigquery-public-data.noaa_gsod.gsod2022`
 
 
