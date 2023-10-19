@@ -10,3 +10,7 @@ sources:
         description: "This table contains raw data for 2022."  # Optional: add a description for documentation
       - name: raw_shelter_2023
         description: "This table contains raw data for 2023."
+
+   
+      - name: weather_historical_view_2022
+      - name: weather_historical_view_2023
