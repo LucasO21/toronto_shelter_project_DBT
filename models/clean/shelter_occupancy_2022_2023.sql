@@ -3,6 +3,13 @@ This model combines raw shelter data for 2022 and 2023 and then reshapes
 shelter occupancy value columns for bed and rooms from wide to long format.
 */
 
+{{
+    config(
+        materialized = "table",
+        schema       = "data_clean"
+    )
+}}
+
 with 
     merged_shelter_data as (
         -- Merges raw shelter data for both 2022 and 2023.

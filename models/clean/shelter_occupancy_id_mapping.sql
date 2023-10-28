@@ -1,3 +1,13 @@
+
+
+{{
+    config(
+        materialized = "table",
+        schema       = "data_clean"
+    )
+}}
+
+
 with 
     distinct_values as (
         -- Retrieve distinct values from multiple columns and associate them with their respective column names.

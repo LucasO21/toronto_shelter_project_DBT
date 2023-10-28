@@ -3,6 +3,13 @@ This model combines historical daily weather data for 2022 and 2023 for Toronto.
 The model also selects only the necessary features of min temp, max temp, and average temp.
 */
 
+{{
+    config(
+        materialized = "table",
+        schema       = "data_clean"
+    )
+}}
+
 with 
     toronto_weather_2022 as (
         -- Extracts min, max, and average temperature data for Toronto for 2022.

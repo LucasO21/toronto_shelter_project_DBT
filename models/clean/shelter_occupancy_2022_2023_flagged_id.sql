@@ -1,4 +1,10 @@
 
+{{
+    config(
+        materialized = "table",
+        schema       = "data_clean"
+    )
+}}
 
 with 
     sector_id as (

@@ -1,4 +1,12 @@
 
+{{
+    config(
+        materialized = "table",
+        schema       = "data_features"
+    )
+}}
+
+
 with
   
   distinct_shelter_dates as (
