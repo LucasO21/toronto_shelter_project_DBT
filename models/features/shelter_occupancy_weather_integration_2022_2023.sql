@@ -1,3 +1,21 @@
+/*
+This dbt model augments shelter occupancy data with weather information, creating a comprehensive view that associates shelter usage with corresponding weather conditions. 
+Initially, it extracts distinct shelter occupancy dates and associated primary keys.
+It then enriches these dates with weather data, such as minimum, maximum, and average temperatures, flagging any dates that lack weather data. 
+To account for missing weather data, a 3-day rolling average of the temperature metrics is calculated for each shelter, partitioned by the primary key and ordered by date.
+In cases where weather data is missing, the model intelligently fills the gaps with these rolling averages to ensure that each shelter occupancy date has associated temperature information. 
+The model cleans up the intermediate columns used for the rolling calculations, leaving a dataset with the original shelter data alongside the filled weather data.
+The final output is a complete dataset that marries shelter occupancy details with daily weather conditions, making it suitable for analyses that may explore correlations between shelter usage patterns and weather variations.
+*/
+
+
+{{
+    config(
+        materialized = "table",
+        schema       = "data_features"
+    )
+}}
+
 
 with
   

@@ -1,3 +1,21 @@
+/*
+This dbt model performs a data aggregation and transformation operation that targets the normalization of categorical fields from the 'shelter_occupancy_2022_2023' table. 
+It begins by extracting distinct values from the columns 'sector', 'program_model', 'program_area', 'overnight_service_type', and 'capacity_type', and labels them with their source column name.
+Once the distinct values are captured, the model assigns unique IDs to each distinct value, with the IDs partitioned by their corresponding category name, thereby ensuring unique identifiers within each category.
+The data is then reshaped into a wide format where each distinct categorical value type receives its own corresponding ID column. 
+This transformation facilitates easier joins with other tables that may require these categorical fields to be represented by their unique identifiers.
+The final output is a table with these new ID columns alongside the original values, ready for use in further data modeling or for direct reference in reporting tools.
+*/
+
+
+{{
+    config(
+        materialized = "table",
+        schema       = "data_clean"
+    )
+}}
+
+
 with 
     distinct_values as (
         -- Retrieve distinct values from multiple columns and associate them with their respective column names.
