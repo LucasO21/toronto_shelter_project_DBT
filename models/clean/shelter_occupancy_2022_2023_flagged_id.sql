@@ -1,3 +1,13 @@
+/*
+This dbt model is designed to enrich and transform shelter occupancy data over the years 2022 and 2023. 
+Initially, it adds sector, program model, program area, and overnight service type identifiers by joining to an 'id_mapping' table to standardize textual descriptions into IDs.
+Following this, it creates a concatenated primary key ('pkey') for each record to ensure uniqueness, which combines organization, shelter, location, program, sector, program model, program area, overnight service type, and capacity type IDs.
+The model then computes the number of days each shelter was open each year and translates this into a percentage of the year.
+A flag ('model_cohort') is assigned to identify whether a shelter was open for at least 75% of the year, signifying a cohort for potential further analysis.
+Lastly, the model integrates these new flags and computes an adjusted 'model_cohort' flag that accounts for the presence of necessary IDs, ensuring that only records with complete ID information are flagged accordingly. 
+The final output rearranges the columns into a specified order, ready for analysis or reporting purposes.
+*/
+
 
 {{
     config(
@@ -180,5 +190,7 @@ with
             end as model_cohort_adj
         from add_flags
     )
-      select * from arrange_columns
+      select 
+        * 
+      from arrange_columns
     

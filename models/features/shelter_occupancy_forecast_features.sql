@@ -19,7 +19,7 @@ with
           pkey
         , max(occupancy_date) as max_date
         , date_sub(max(occupancy_date), interval 7 day) as start_date
-      from `toronto-shelter-project`.`data_features`.`shelter_occupancy_weather_integration_2022_2023`
+      from {{ref ('shelter_occupancy_weather_integration_2022_2023')}}
       group by 1 
   )
     --select * from date_range;
@@ -34,7 +34,7 @@ with
         , t1.occupancy_rate
         , t2.max_date
         , t2.start_date
-      from `toronto-shelter-project`.`data_features`.`shelter_occupancy_weather_integration_2022_2023` as t1
+      from {{ref ('shelter_occupancy_weather_integration_2022_2023')}} as t1
       left join date_range as t2
         on t1.pkey = t2.pkey
       where t1.pkey is not null
@@ -110,7 +110,7 @@ with
               , capacity_actual
               , capacity_funding
             )
-          from `toronto-shelter-project`.`data_features`.`shelter_occupancy_weather_integration_2022_2023`
+          from {{ref ('shelter_occupancy_weather_integration_2022_2023')}}
           where model_cohort_adj = 1
     )
     --select * from required_features_from_data;
