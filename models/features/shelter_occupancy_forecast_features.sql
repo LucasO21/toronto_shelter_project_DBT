@@ -1,7 +1,10 @@
 
 /*
 This model gets features for predicing overnight shelter occupancy for the next 5 days.
- - The model uses the last 7 days (for each pkey) to average capacity_actual, occupied and occupancy_rate
+ * Focuses on pkeys where `model_cohort_adj` = 1, i.e pkeys that have existing for 75% or more days in a given year
+ * Create future dates (next 5 days) for each pkey
+ * Extract features needed for making predictions (for each pkey) including organization_id, program_id, location_id, etc
+ * Combine with weather forecast for the next 5 days
 */
 
 {{
