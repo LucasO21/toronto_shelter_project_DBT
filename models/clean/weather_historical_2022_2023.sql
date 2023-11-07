@@ -36,13 +36,13 @@ with
     , combined_weather_data as (
         -- Combines the extracted temperature data for 2022 and 2023.
           select
-            *
+            distinct *
           from toronto_weather_2022
 
           union distinct
           
           select
-            *
+            distinct *
           from toronto_weather_2023
       )
         select 

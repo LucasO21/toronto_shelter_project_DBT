@@ -14,13 +14,13 @@ with
     merged_shelter_data as (
         -- Merges raw shelter data for both 2022 and 2023.
         select
-            *
+            distinct *
         from {{source('data_raw', 'raw_shelter_2022')}}
 
         union all
 
         select
-          *
+          distinct *
         from {{source('data_raw', 'raw_shelter_2023')}}
     )
 

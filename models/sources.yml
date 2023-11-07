@@ -6,11 +6,19 @@ sources:
     schema: data_raw  # This is your BigQuery dataset name
     
     tables:
-      - name: raw_shelter_2022  # This is your table name
-        description: "This table contains raw data for 2022."  # Optional: add a description for documentation
+      - name: raw_shelter_2022  
+        description: "This table contains raw data for 2022."  
       - name: raw_shelter_2023
-        description: "This table contains raw data for 2023."
-
-   
+        description: "This table contains raw data for 2023."   
       - name: weather_historical_view_2022
+        description: "Historical daily weather for 2022"
       - name: weather_historical_view_2023
+        description: "Historical daily weather for 2023"
+
+  - name: data_pred
+    database: toronto-shelter-project
+    schema: data_pred
+    tables:
+      - name: shelter_occupancy_predictions
+        description: "Future shelter occupancy predictions from R"
+
