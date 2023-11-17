@@ -60,7 +60,8 @@ with
   , latest_occupancy_date as (
      -- Determine the latest date for which occupancy data is available.
       select
-        max(max_date) as max_date
+        --max(max_date) as max_date
+        case when current_date('EST') > max(max_date) then current_date('EST') -1 else max(max_date) end as max_date
       from date_range
   )
     --select * from latest_occupancy_date;
